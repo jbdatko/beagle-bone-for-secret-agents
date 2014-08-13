@@ -1,0 +1,31 @@
+# We are running a relay, no need for the SocksPort
+SocksPort 0
+# Extra logging is nice
+Log notice file /var/log/tor/notices.log
+# Run in the background
+RunAsDaemon 1
+# The following two lines are so we can connect with the
+## Tor Stem library over the control port
+ControlPort 9051
+CookieAuthentication 1
+# The is the Onion Router (OR) Port for normal relay operation
+ORPort 9001
+# Your bridge's nickname, change!
+Nickname changeme
+# Bandwidth settings
+RelayBandwidthRate 520 KB # Throttle traffic to 520 KB/s
+RelayBandwidthBurst 640 KB # But allow burts up to 640 KB/s
+# You put a real email here, but consider making a new account
+## or alias address
+ContactInfo Random Person <nobody AT example dot com>
+# Do not exit traffic
+ExitPolicy reject *:* # no exits allowed
+# Yes, we want to be a bridge
+BridgeRelay 1
+# Use the obfs3 pluggable transport
+ServerTransportPlugin obfs3 exec /usr/bin/obfsproxy managed
+# Enable extra bridge statistics collection
+ExtORPort auto
+# A nice option for embedded platforms to minimize writes
+# to eMMC or SD card
+AvoidDiskWrites 1
