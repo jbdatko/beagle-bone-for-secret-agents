@@ -1,4 +1,4 @@
-beagle-bone-for-secret-agents
+BeagleBone for Secret Agents
 =============================
 
 ![Book Cover](book.jpg)
