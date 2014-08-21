@@ -1,0 +1,19 @@
+#!/bin/bash
+
+case "$1" in
+  start)
+    echo "Starting getgpgpin"
+    /usr/local/bin/getgpgpin &
+    ;;
+  stop)
+    echo "Stopping getgpgpin"
+    # getpgppin should die once complete, but just in case
+    pkill getgpgpin
+    ;;
+  *)
+    echo "Usage: /etc/init.d/example{start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
